@@ -1,4 +1,5 @@
 package miniassignment;
+//@author 김정원
 import java.util.Random;
 import java.util.Scanner;
 
@@ -25,7 +26,7 @@ public class Assignment7 {
         }
         return lottoArray;
     }
-    // 일치 갯수 판단
+    // 일치 갯수 구하는 함수
     public static int checkLotto(int[] lottoArray, int[] winner){
         int count = 0;
         for (int i = 0; i < lottoArray.length; i++) {
