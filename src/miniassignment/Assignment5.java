@@ -33,6 +33,8 @@ public class Assignment5 {
         //int month = sc.nextInt();
         int year=2023;
         int month=10;
+        getCalender(year, month-1);
         getCalender(year, month);
+        getCalender(year, month+1);
     }
 }
