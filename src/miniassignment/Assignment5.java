@@ -1,6 +1,5 @@
 package miniassignment;
-import java.time.chrono.ChronoLocalDate;
-import java.util.Locale;
+
 import java.util.Scanner;
 import java.time.LocalDate;
 public class Assignment5 {
@@ -27,12 +26,10 @@ public class Assignment5 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("[달력 출력 프로그램]");
-        //System.out.print("달력의 년도를 입력해주세요:(yyyy):");
-        //int year = sc.nextInt();
-        //System.out.print("달력의 월을 입력해주세요.(mm):");
-        //int month = sc.nextInt();
-        int year=2023;
-        int month=10;
+        System.out.print("달력의 년도를 입력해주세요:(yyyy):");
+        int year = sc.nextInt();
+        System.out.print("달력의 월을 입력해주세요.(mm):");
+        int month = sc.nextInt();
         getCalender(year, month-1);
         getCalender(year, month);
         getCalender(year, month+1);
