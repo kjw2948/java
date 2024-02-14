@@ -1,5 +1,5 @@
 package datastructure.arrayexcercise;
-
+// 배열 오름차순 정렬
 public class Excercise4 {
     public static void main(String[] args) {
         int[] arr = {5,3,1,4,6,1,1,7,9,9};
