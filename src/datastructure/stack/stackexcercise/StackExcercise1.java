@@ -1,4 +1,5 @@
 package datastructure.stack.stackexcercise;
+// 스택을 이용하여 문자열 뒤집기
 import java.util.Stack;
 public class StackExcercise1 {
     public static String reverserString(String str){
