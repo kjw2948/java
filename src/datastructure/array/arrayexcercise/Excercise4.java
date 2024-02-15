@@ -1,4 +1,4 @@
-package datastructure.arrayexcercise;
+package datastructure.array.arrayexcercise;
 // 배열 오름차순 정렬
 public class Excercise4 {
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package datastructure.arrayexcercise;
+package datastructure.array.arrayexcercise;
 // 2차원 배열 시계방향 회전
 public class Excercise6 {
     public static void main(String[] args) {

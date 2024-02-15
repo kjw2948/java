@@ -1,4 +1,4 @@
-package datastructure;
+package datastructure.array.arrayexcercise;
 
 public class Array {
     int[] arr;

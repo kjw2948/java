@@ -1,5 +1,5 @@
-package datastructure.arrayexcercise;
-// 배열 중복제렬
+package datastructure.array.arrayexcercise;
+// 배열 중복제거
 public class Excercise5 {
     public static void main(String[] args) {
         int[] arr = {1, 5, 3,7,4,  2, 2, 3, 6,6,6,7, 1, 4, 1, 2, 3, 5};

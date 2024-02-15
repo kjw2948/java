@@ -1,4 +1,4 @@
-package datastructure.arrayexcercise;
+package datastructure.array.arrayexcercise;
 
 public class Excercise3 {
     public static void main(String[] args) {
