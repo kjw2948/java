@@ -1,4 +1,4 @@
-package baekjoon;
+package baekjoon.bronze;
 
 //백준 2908번 문제
 public class Problem2908 {

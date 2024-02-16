@@ -1,4 +1,4 @@
-package baekjoon;
+package baekjoon.bronze;
 import java.util.Scanner;
 public class Problem2444 {
     public static void solution(int N) {
