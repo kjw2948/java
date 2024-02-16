@@ -4,7 +4,6 @@ import java.util.LinkedList;
 import java.util.Stack;
 
 public class MyQueue {
-
     public static void main(String[] args) {
         Queue queue = new LinkedList();
         queue.add(1);
