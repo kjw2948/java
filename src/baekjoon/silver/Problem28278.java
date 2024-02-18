@@ -7,44 +7,49 @@ public class Problem28278 {
         ArrayList list = new ArrayList();
         int count = 0;
         int num = sc.nextInt();
+        int[] arr = new int[num];
         while (count < num) {
             int choose = sc.nextInt();
             switch (choose) {
                 case 1: {
                     sc.nextInt();
                     int data = sc.nextInt();
-                    System.out.println(list.add(data));
+                    list.add(data);
+                    arr[count] = data;
                     break;
                 }
                 case 2: {
                     if (list.size() == 0)
-                        System.out.println(-1);
+                        arr[count] = -1;
                     else {
-                        System.out.println(list.get(-1));
+                        arr[count] = (int) list.get(-1);
                         list.remove(-1);
                     }
                     break;
                 }
                 case 3: {
-                    System.out.println(list.size());
+                    arr[count] = list.size();
                     break;
                 }
                 case 4: {
                     if (list.isEmpty())
-                        System.out.println(1);
+                        arr[count] = 1;
                     else
-                        System.out.println(0);
+                        arr[count] = 0;
                     break;
                 }
                 case 5: {
                     if (list.size() == 0)
-                        System.out.println(-1);
+                        arr[count] = -1;
                     else
-                        System.out.println(list.get(-1));
+                        arr[count] = (int) list.get(-1);
                     break;
                 }
             }
             count++;
+        }
+        for (int i = 0; i < count; i++) {
+            System.out.println(arr[i]);
         }
     }
 }
