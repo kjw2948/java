@@ -17,7 +17,7 @@ public class Excercise4 {
         System.out.println(list);
 
         Stream stream2 = list.stream();
-        stream2.forEach(System.out::println);
+        //stream2.forEach(System.out::println);
         stream2.forEach(num -> System.out.println("num = "+num));
 
         // 스트림 Builder
@@ -56,7 +56,11 @@ public class Excercise4 {
         int sum = IntStream.range(1, 5).sum();
         double avg = IntStream.range(1, 5).average().getAsDouble();
 
+        // 스트림으로 바꿔보기
+        int[] arr1 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int sum2 = 0;
 
-
+        IntStream intStream5 = IntStream.of(arr1).filter(n -> n%2==0);
+        System.out.println("sum = "+intStream5.sum());
     }
 }
