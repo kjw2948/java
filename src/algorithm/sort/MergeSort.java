@@ -8,6 +8,7 @@ import java.util.Arrays;
 분할 후 합병을 위한 n개의 추가 메모리가 필요함
  */
 public class MergeSort {
+    static int[] tmp = new int[1000000];
     public static void mergeSort(int[] arr, int[] tmp, int left, int right) {
         if(left<right){
             int mid = (left + right) / 2;
@@ -41,8 +42,10 @@ public class MergeSort {
         }
     }
     public static void main(String[] args) {
-        int[] arr = {3, 5, 2, 7, 1, 4, 6};
-        int[] tmp = new int[arr.length];
+        int[] arr = new int[1000000];
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = i;
+        }
         mergeSort(arr, tmp, 0, arr.length-1);
         System.out.println(Arrays.toString(arr));
     }
