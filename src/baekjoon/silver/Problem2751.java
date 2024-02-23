@@ -2,49 +2,49 @@ package baekjoon.silver;
 import java.io.*;
 public class Problem2751 {
     static int[] sorted = new int[1000000];
-    static int[] merge(int[] arr, int l, int mid, int r) {
-        int i = l; // 왼쪽 배열의 시작 index
-        int j = mid + 1; // 오른쪽 배열의 시작 index
-        int k = l; // merge 결과 배열의 index
+    static int[] merge(int[] arr, int left, int mid, int right) {
+        int p = left; // 왼쪽 배열의 시작 index
+        int q = mid + 1; // 오른쪽 배열의 시작 index
+        int idx = p; // merge 결과 배열의 index
 
-        while (i <= mid && j <= r) {
-            if (arr[i] <= arr[j]) {
-                sorted[k++] = arr[i++];
+        while (p <= mid && q <= right) {
+            if (arr[p] <= arr[q]) {
+                sorted[idx++] = arr[p++];
             } else {
-                sorted[k++] = arr[j++];
+                sorted[idx++] = arr[q++];
             }
         }
 
-        if (i > mid) {
-            for (int right = j; right <= r; right++) {
-                sorted[k++] = arr[right];
+        if (p > mid) {
+            for (int i = q; i <= right; i++) {
+                sorted[idx++] = arr[i];
             }
         } else {
-            for (int left = i; left <= mid; left++) {
-                sorted[k++] = arr[left];
+            for (int i = p; i <= mid; i++) {
+                sorted[idx++] = arr[i];
             }
         }
 
         // 원래 배열에 복사
-        for (int tmp = l; tmp <= r; tmp++) {
-            arr[tmp] = sorted[tmp];
+        for (int i = left; i <= right; i++) {
+            arr[i] = sorted[i];
         }
 
         return arr;
 
     }
 
-    static int[] mergeSort(int[] arr, int l, int r) {
+    static int[] mergeSort(int[] arr, int left, int right) {
         int mid;
         if (arr.length == 1) {
             return arr;
         }
 
-        if (l < r) {
-            mid = (l + r) / 2;
-            arr = mergeSort(arr, l, mid);
-            arr = mergeSort(arr, mid + 1, r);
-            arr = merge(arr, l, mid, r);
+        if (left < right) {
+            mid = (left + right) / 2;
+            arr = mergeSort(arr, left, mid);
+            arr = mergeSort(arr, mid + 1, right);
+            arr = merge(arr, left, mid, right);
         }
 
         return arr;
