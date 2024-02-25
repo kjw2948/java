@@ -3,7 +3,7 @@ package baekjoon.silver;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
+import java.util.StringTokenizer;
 
 public class Problem1920 {
     public static int[] tmp;
@@ -55,35 +55,34 @@ public class Problem1920 {
     }
     public static void main(String[] args) throws IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
+        StringTokenizer st;
         int N = Integer.parseInt(bf.readLine());
         int[] A = new int[N];
+        st = new StringTokenizer(bf.readLine()," ");
         for (int i = 0; i < N; i++) {
-            A[i] = Integer.parseInt(bf.readLine());
+            A[i] = Integer.parseInt(st.nextToken());
         }
 
         int M = Integer.parseInt(bf.readLine());
         int[] B = new int[M];
+        st = new StringTokenizer(bf.readLine());
         for (int i = 0; i < M; i++) {
-            B[i] = Integer.parseInt(bf.readLine());
+            B[i] = Integer.parseInt(st.nextToken());
         }
 
 
         int[] tmpA = new int[N];
         mergeSort(A, tmpA,0, A.length-1);
 
-        int[] tmpB = new int[M];
-        mergeSort(B, tmpB,0, B.length-1);
-
         for (int i = 0; i < M; i++) {
             int check = binarySearch(A, B[i], 0, A.length-1);
-            /*
+
             if(check!=-1){
                 System.out.println(1);
             }else{
                 System.out.println(0);
             }
-            */
-            System.out.println(check);
         }
 
     }
