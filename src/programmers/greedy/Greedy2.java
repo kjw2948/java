@@ -4,7 +4,6 @@ class Joystick{
     int count;
     int idx;
     public void moveUp() {
-        if()
         this.idx ++;
         this.count ++;
     }
