@@ -1,29 +1,33 @@
 package programmers.sort;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Sort2 {
     public static String solution(int[] numbers) {
-        String answer = "";
-        ArrayList<Integer> list = new ArrayList<>();
-        int max = numbers[0];
-        for (int i = 0; i < numbers.length; i++) {
-            if(numbers[i]<10){
+        String[] arr = new String[numbers.length];
 
-            }else if(numbers[i]<100){
-
-            } else if (numbers[i] < 1000) {
-
-            } else {
-
-            }
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = String.valueOf(numbers[i]);
         }
-        return answer;
+
+        Arrays.sort(arr, (o1, o2) -> (o2 + o1).compareTo(o1 + o2));
+
+        if (arr[0].equals("0")) {
+            return "0";
+        }
+
+        StringBuilder answer = new StringBuilder();
+
+        for (int i = 0; i < arr.length; i++) {
+            answer.append(arr[i]);
+        }
+
+
+        return answer.toString();
     }
 
     public static void main(String[] args) {
-        int[] numbers = {6, 10, 5};
+        int[] numbers = {6, 10, 5, 7, 100};
         System.out.println(solution(numbers));
     }
 }
