@@ -9,7 +9,7 @@ public class Excercise1 {
         if(left<arr.length -1){
             inOrder(arr, left);
         }
-        System.out.print(arr[idx]+", ");
+        System.out.print(arr[idx]+" ");
         if(right<arr.length -1){
             inOrder(arr, right);
         }
@@ -22,9 +22,12 @@ public class Excercise1 {
             tree[i * 2 + 2] = 1;
         }
         inOrder(tree, 0);
+        System.out.println("");
     }
 
     public static void main(String[] args) {
+        solution(1);
+        solution(2);
         solution(3);
     }
 }
