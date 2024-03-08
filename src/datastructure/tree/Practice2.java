@@ -1,7 +1,7 @@
 package datastructure.tree;
 
 class Node{
-    int data;
+    char data;
     Node left;
     Node right;
 }
@@ -15,7 +15,7 @@ class Tree {
         return root;
     }
 
-    public Node makeNode(int data, Node left, Node right) {
+    public Node makeNode(char data, Node left, Node right) {
         Node node = new Node();
         node.data = data;
         node.left = left;
@@ -32,14 +32,14 @@ class Tree {
     public void preOrder(Node node) {
         if(node!=null){
             System.out.print(node.data + " ");
-            inOrder(node.left);
-            inOrder(node.right);
+            preOrder(node.left);
+            preOrder(node.right);
         }
     }
     public void postOrder(Node node) {
         if(node!=null){
-            inOrder(node.left);
-            inOrder(node.right);
+            postOrder(node.left);
+            postOrder(node.right);
             System.out.print(node.data + " ");
         }
     }
@@ -51,20 +51,25 @@ class BinaryTree2 {
 public class Practice2 {
     public static void main(String[] args) {
         Tree tree = new Tree();
-        Node n4 = tree.makeNode(4, null, null);
-        Node n5 = tree.makeNode(5, null, null);
-        Node n2 = tree.makeNode(2, n4, n5);
-        Node n3 = tree.makeNode(3, null, null);
-        Node n1 = tree.makeNode(1, n2, n3);
-        tree.setRoot(n1);
+        Node H = tree.makeNode('H', null, null);
+        Node I = tree.makeNode('I', null, null);
+        Node D = tree.makeNode('D', H, I);
+        Node J = tree.makeNode('J', null, null);
+        Node E = tree.makeNode('E', J, null);
+        Node B = tree.makeNode('B', D, E);
+        Node F = tree.makeNode('F', null, null);
+        Node G = tree.makeNode('G', null, null);
+        Node C = tree.makeNode('C', F, G);
+        Node A = tree.makeNode('A', B, C);
+        tree.setRoot(A);
         System.out.println("====== preOrder ======");
-        tree.preOrder(n1);
+        tree.preOrder(A);
         System.out.println("");
         System.out.println("====== inOrder ======");
-        tree.inOrder(n1);
+        tree.inOrder(A);
         System.out.println("");
         System.out.println("====== postOrder ======");
-        tree.postOrder(n1);
+        tree.postOrder(A);
         System.out.println("");
     }
 }
