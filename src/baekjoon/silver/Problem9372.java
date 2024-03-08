@@ -40,7 +40,6 @@ public class Problem9372 {
                 airplane[j] = new ArrayList<>();
             }
             boolean[] visit = new boolean[N + 1];
-            int answer = 0;
             for (int j = 0; j < M; j++) {
                 st = new StringTokenizer(bf.readLine());
                 int a = Integer.parseInt(st.nextToken());
