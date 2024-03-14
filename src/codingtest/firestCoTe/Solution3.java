@@ -1,6 +1,6 @@
-import java.util.HashMap;
+package codingtest.firestCoTe;
 
-public class Solution {
+public class Solution3 {
     public static int combination(int N, int num_one) {
         int answer = 1;
         if(num_one<0){
