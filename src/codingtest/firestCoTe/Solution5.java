@@ -18,24 +18,31 @@ public class Solution5 {
             return n * permutation(n - 1, r - 1);
     }
     public static long solution(int N, int M, int K, int[] capacity) {
-        Arrays.sort(capacity); // 용량이 큰 교실부터 배치하기 위해 정렬
-        int classrooms = capacity.length;
-        long answer = 1;
+        int capacitySum = Arrays.stream(capacity).sum();
 
-        for (int i = classrooms - 1; i >= 0; i--) {
-            if (N <= 0) // 모든 학생이 배정되었으면 종료
-                break;
-            // 현재 교실에 배정 가능한 학생 수 계산
-            int availableSeats = capacity[i];
-            int r =  Math.min(availableSeats, N);
-            answer *= combination(N, r);
+        long studentClass = 1;
+        if (capacitySum == N) {
+            int studentLeft = N;
+            for (int cap : capacity) {
+                studentClass = nChooseK(studentLeft, cap);
+                studentLeft -= cap;
+            }
+        } else {
+            studentClass = 0;
+            long capacityMult = Arrays.stream(capacity).asLongStream().
+                    reduce(1, (x, y) -> x * (y + 1));
+            indexLoop :
+            for (int i = 0; i < capacityMult; i++) {
+                int[] caps = new int[M];
+                long denominator = capacityMult;
+                long numerator = i;
+                int currentSum = 0;
 
-            // 남은 학생 수 갱신
-            N -= availableSeats;
+                for (int j = 0; j < M; j++) {
+                    
+                }
+            }
         }
-        int director = permutation(K,M);
-        answer *= director;
-        return answer;
     }
 
     public static void main(String[] args) {
