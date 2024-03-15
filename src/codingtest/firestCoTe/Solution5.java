@@ -11,12 +11,19 @@ public class Solution5 {
         else
             return combination(n - 1, r - 1) + combination(n - 1, r);
     }
+
     public static int permutation(int n, int r) {
         if (n == r || r == 0)
             return 1;
         else
             return n * permutation(n - 1, r - 1);
     }
+
+    public static long nChooseK(int studentLest, int cap) {
+
+        return 1;
+    }
+
     public static long solution(int N, int M, int K, int[] capacity) {
         int capacitySum = Arrays.stream(capacity).sum();
 
@@ -31,7 +38,7 @@ public class Solution5 {
             studentClass = 0;
             long capacityMult = Arrays.stream(capacity).asLongStream().
                     reduce(1, (x, y) -> x * (y + 1));
-            indexLoop :
+            indexLoop:
             for (int i = 0; i < capacityMult; i++) {
                 int[] caps = new int[M];
                 long denominator = capacityMult;
@@ -39,11 +46,13 @@ public class Solution5 {
                 int currentSum = 0;
 
                 for (int j = 0; j < M; j++) {
-                    
+
                 }
             }
         }
+        return 1;
     }
+
 
     public static void main(String[] args) {
         int[] capacity = {3, 3, 4};
