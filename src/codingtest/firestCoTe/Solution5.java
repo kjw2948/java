@@ -20,7 +20,7 @@ public class Solution5 {
     }
 
     public static long nChooseK(int studentLest, int cap) {
-
+        int a = studentLest;
         return 1;
     }
 
