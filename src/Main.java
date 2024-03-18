@@ -5,10 +5,15 @@ public class Main {
     public static String solution(String letter) {
         String answer = "";
         String[] morse = {".-","-...","-.-.","-..",".","..-.","--.","....","..",".---","-.-",".-..","--","-.","---",".--.","--.-",".-.","...","-","..-","...-",".--","-..-","-.--","--.."};
-        for (int i = 0; i < morse.length; i++) {
-            letter.replaceAll(morse[i], Character.toString((char)(i +'0')));
+        String[] morseArr = letter.split(" ");
+        for (String s : morseArr) {
+            for (int i = 0; i < morse.length; i++) {
+                if (s.equals(morse[i])) {
+                    answer += Character.toString(i + 'a');
+                }
+            }
         }
-        return letter;
+        return answer;
     }
     public static void main(String[] args) {
         int age = 23;
