@@ -3,12 +3,11 @@ package programmers.daily;
 import java.util.Scanner;
 
 public class Day2_2 {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        String a = sc.next();
-        for (int i = 0; i < a.length(); i++) {
-            System.out.println(a.charAt(i));
-        }
-    }
+    public int solution(int a, int b) {
+        int answer = 0;
+        String str1 = Integer.toString(a);
+        String str2 = Integer.toString(b);
 
+        return answer = Integer.parseInt(str1+str2)>Integer.parseInt(str2+str1) ? Integer.parseInt(str1+str2) : Integer.parseInt(str2+str1);
+    }
 }
