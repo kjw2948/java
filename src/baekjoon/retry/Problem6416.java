@@ -1,4 +1,4 @@
-package baekjoon.silver;
+package baekjoon.retry;
 
 import java.util.ArrayList;
 import java.util.Scanner;

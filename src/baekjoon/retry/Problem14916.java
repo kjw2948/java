@@ -1,4 +1,4 @@
-package baekjoon.silver;
+package baekjoon.retry;
 
 public class Problem14916 {
 
