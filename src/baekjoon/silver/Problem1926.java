@@ -2,6 +2,7 @@ package baekjoon.silver;
 
 import java.util.*;
 
+//bfs 문제 : 그래프 탐색
 public class Problem1926 {
     static int count = 0;
     static int row,col;
