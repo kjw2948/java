@@ -1,4 +1,5 @@
 package oop.practice;
 
-public class Child {
+public class Child extends Parent{
+
 }
