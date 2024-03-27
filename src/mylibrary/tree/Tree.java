@@ -19,12 +19,20 @@ public class Tree {
             Node node = new Node(i);
             tree[i] = node;
         }
+        /*
+                1
+               / \
+              2   3
+             / \ / \
+            4  5 6  7
+         */
+
         for (int i = 1; i*2 <= count; i++) {
             tree[i].left = tree[i*2];
             tree[i].right = tree[i*2 + 1];
         }
         System.out.println("---------preOrder---------");
-        preOrder(tree[1]);
+        preOrder(tree[1]); //루트노드 값
         System.out.println(" ");
         System.out.println("---------inOrder---------");
         inOrder(tree[1]);
