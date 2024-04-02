@@ -6,20 +6,25 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class Bridge {
+    static int[][] arr = new int[30][30];
     public static int solution(int N, int M) {
-        int result = 1;
-        int n = 1;
-        for (int i = M; i > M-N; i--) {
-            result = result*i/n;
-            n ++;
+        if(arr[N][M]>0){
+            return arr[N][M];
         }
-        return result;
+        if (N >= 1 && M >= 1 && N<=M) {
+            arr[N][M] = solution(N, M - 1) + solution(N - 1, M - 1);
+        }
+        return arr[N][M];
     }
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
         int T = Integer.parseInt(br.readLine());
         StringTokenizer st;
+        for (int i = 0; i < 30; i++) {
+            arr[0][i] = 1;
+            arr[1][i] = i;
+        }
         for (int i = 0; i < T; i++) {
             st = new StringTokenizer(br.readLine());
             int N = Integer.parseInt(st.nextToken());
