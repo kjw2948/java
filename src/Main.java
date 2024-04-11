@@ -1,8 +1,6 @@
 
 public class Main{
-    static boolean[] visit;
-    public static int solution(int[] numbers, int target) {
-        visit = new boolean[numbers.length];
+    public int solution(String[][] clothes) {
         return 0;
     }
     public static void main(String[] args) {
