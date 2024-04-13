@@ -1,55 +1,72 @@
 package baekjoon.silver;
 
-import java.util.Scanner;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class Problem20546 {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        int jh = 0;
-        int sm = 0;
-        int money = sc.nextInt();
-        int smMoney = money;
-        int down = 0;
-        int up = 0;
-        int[] stock = new int[14];
-        for (int i = 0; i < stock.length; i++) {
-            stock[i] = sc.nextInt();
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st;
+        int N = Integer.parseInt(br.readLine());
+        int money = N;
+        int stuck = 0; // 주식 수
+        int jh = 0; // 준현이 돈
+        int sm = 0; // 성민이 돈
+
+        int[] arr = new int[14];
+        st = new StringTokenizer(br.readLine());
+        for (int i = 0; i < 14; i++) {
+            arr[i] = Integer.parseInt(st.nextToken());
         }
-        for (int i = 0; i < stock.length; i++) {
-            if(money>=stock[i]){
-                jh = money/stock[i];
-                money -= jh*stock[i];
+        // 준현이 로직
+        for (int i = 0; i < 14; i++) {
+            if(money >= arr[i]){
+                int n = money / arr[i];
+                stuck += n;
+                money -= arr[i]*n;
             }
-            if(i==stock.length-1){
-                money += jh*stock[i];
-            }
-            if(i>=1 && i< stock.length){
-                if(stock[i]>stock[i-1]){
-                    up++;
-                    down = 0;
-                }else if(stock[i]<stock[i-1]){
-                    down ++;
-                    up = 0;
-                } else{
-                    down = 0;
-                    up =0;
+        }
+        jh = (stuck * arr[13]) + money;
+
+        //성민이 로직
+        money = N;
+        stuck = 0;
+        int up = 0;
+        int down = 0;
+        for (int i = 1; i < 14; i++) {
+            if(down>=3){
+                if(money>=arr[i]){
+                    int stuck1 = money / arr[i];
+                    stuck += stuck1;
+                    money -= stuck1 * arr[i];
                 }
             }
-            if(smMoney >= stock[i] && down >=3){
-                sm = smMoney / stock[i];
-                smMoney -= stock[i]*sm;
-            }
             if(up>=3){
-                smMoney += sm*stock[i];
-                sm = 0;
+                money += stuck * arr[i];
+                stuck = 0;
+            }
+            if(arr[i-1]>arr[i]){
+                down ++;
                 up = 0;
+            } else if(arr[i-1]==arr[i]){
+                up = 0;
+                down = 0;
+            }else{
+                up ++;
+                down = 0;
             }
         }
-        if (smMoney > money) {
-            System.out.println("TIMING");
-        } else if (smMoney < money) {
+        sm = money + (stuck*arr[13]);
+        System.out.println(jh);
+        System.out.println(sm);
+
+        if(jh>sm){
             System.out.println("BNP");
-        } else {
+        }else if(jh<sm){
+            System.out.println("TIMING");
+        }else{
             System.out.println("SAMESAME");
         }
     }
