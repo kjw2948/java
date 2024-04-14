@@ -36,14 +36,14 @@ public class Problem20546 {
         int up = 0;
         int down = 0;
         for (int i = 1; i < 14; i++) {
-            if(down>=3){
+            if(down>=2){
                 if(money>=arr[i]){
                     int stuck1 = money / arr[i];
                     stuck += stuck1;
                     money -= stuck1 * arr[i];
                 }
             }
-            if(up>=3){
+            if(up>=2){
                 money += stuck * arr[i];
                 stuck = 0;
             }
