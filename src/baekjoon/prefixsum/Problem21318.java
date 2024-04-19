@@ -35,6 +35,5 @@ public class Problem21318 {
         for (int i = 0; i < answer.length; i++) {
             System.out.println(answer[i]);
         }
-
     }
 }
