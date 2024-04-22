@@ -38,6 +38,7 @@ public class Main{
                 }
             }
         }
-        System.out.println("Last correct = " + correct);
+        String prefix = Integer.toString(random.nextInt(1, 6));
+        System.out.println("Last correct = " + prefix + correct);
     }
 }
