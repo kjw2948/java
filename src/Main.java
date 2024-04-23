@@ -39,6 +39,7 @@ public class Main{
             }
         }
         String prefix = Integer.toString(random.nextInt(1, 6));
+        System.out.println("prefix = " + prefix);
         System.out.println("Last correct = " + prefix + correct);
     }
 }
