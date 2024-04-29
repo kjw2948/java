@@ -34,8 +34,15 @@ public class EffectiveHacking {
             int b = Integer.parseInt(st.nextToken());
             listArr[a].add(b);
         }
-
-
+        int max = cntArr[0];
+        int index = 0;
+        for (int i = 1; i < cntArr.length; i++) {
+            if(max<cntArr[i]){
+                max = cntArr[i];
+                index = i;
+            }
+        }
+        System.out.println(index);
     }
     public static void bfs(int start) {
         Queue<Integer> queue = new LinkedList<>();
