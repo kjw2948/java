@@ -11,6 +11,7 @@ public class Main{
         int[] checkCount = new int[8];
         int index = 0;
         int count = 0;
+        /*
         while(index<8){
             for (int i = 0; i < 6; i++) {
                 correct += Integer.toString(random.nextInt(0, 10));
@@ -41,5 +42,34 @@ public class Main{
         String prefix = Integer.toString(random.nextInt(1, 6));
         System.out.println("prefix = " + prefix);
         System.out.println("Last correct = " + prefix + correct);
+
+
+         */
+        sixFourFive();
+    }
+
+    public static void sixFourFive() {
+        Random random = new Random();
+        String winner = "";
+        int[] arr = new int[6];
+        for (int i = 0; i < 6; i++) {
+            int n = random.nextInt(0,45)+1;
+            if(i==0){
+                arr[i] = n;
+            }
+            for (int j = 0; j < i; j++) {
+                if(n==arr[j]){
+                    i--;
+                    break;
+                }
+                if(j==i-1){
+                    arr[i] = n;
+                }
+            }
+        }
+        for (int i = 0; i < 6; i++) {
+            winner = winner + Integer.toString(arr[i]) +" ";
+        }
+        System.out.println(winner);
     }
 }
