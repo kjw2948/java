@@ -45,7 +45,9 @@ public class Main{
 
 
          */
-        sixFourFive();
+        sevenTwentyPlus();
+
+        //sixFourFive();
     }
 
     public static void sixFourFive() {
@@ -69,6 +71,18 @@ public class Main{
         }
         for (int i = 0; i < 6; i++) {
             winner = winner + Integer.toString(arr[i]) +" ";
+        }
+        System.out.println(winner);
+    }
+    public static void sevenTwentyPlus() {
+        Random random = new Random();
+        String winner = " ";
+        for (int i = 0; i < 7; i++) {
+            if(i==0){
+                winner = Integer.toString(random.nextInt(0,5)+1) + winner;
+            } else{
+                winner += Integer.toString(random.nextInt(0,10));
+            }
         }
         System.out.println(winner);
     }
