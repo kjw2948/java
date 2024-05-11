@@ -48,6 +48,7 @@ public class Problem1713 {
                 result += Integer.toString(student[i]) + " ";
             }
         }
-        System.out.print(result);
+        result += " ";
+
     }
 }
