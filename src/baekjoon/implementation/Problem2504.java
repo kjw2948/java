@@ -10,24 +10,24 @@ import java.util.StringTokenizer;
 public class Problem2504 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        Deque<String> stack = new ArrayDeque<>();
+        Deque<Character> stack = new ArrayDeque<>();
         Deque<Integer> result = new ArrayDeque<>();
 
-        while (st.hasMoreTokens()) {
-            String input = st.nextToken();
-            switch (input) {
-                case "(" :
+        char[] inputArray = br.readLine().toCharArray();
+        int index = 0;
+        char check = ' ';
+        while (index<inputArray.length) {
+            char input = inputArray[index++];
+            switch (input){
+                case '(', '[' :
                     stack.add(input);
                     break;
-                case ")":
-                    String output = stack.poll();
-                    if (output.equals("(")) {
-                        stack.poll();
-
+                case ')':
+                    if(check=='('){
+                        
                     }
-
             }
         }
+        System.out.println(result.poll());
     }
 }
