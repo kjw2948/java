@@ -8,21 +8,17 @@ import java.util.StringTokenizer;
 public class Problem1912 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st;
         int N = Integer.parseInt(br.readLine());
         int[] dp = new int[N];
         int[] arr = new int[N];
-        int max; 
-        
-        st = new StringTokenizer(br.readLine());
+        StringTokenizer st = new StringTokenizer(br.readLine());
 
         for (int i = 0; i < N; i++) {
             arr[i] = Integer.parseInt(st.nextToken());
         }
 
+        int max = arr[0];
         dp[0] = arr[0];
-        max = arr[0];
-
         for (int i = 1; i < N; i++) {
             dp[i] = Math.max(dp[i - 1] + arr[i], arr[i]);
             max = Math.max(max, dp[i]);
