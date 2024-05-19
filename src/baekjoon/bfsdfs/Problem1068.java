@@ -10,7 +10,7 @@ public class Problem1068 {
 
     static ArrayList<Integer>[] tree;
     static int delete;
-    static int count = 0;
+    static int count;
     public static void dfs(int start) {
         for (int i = 0; i < tree[start].size(); i++) {
             int cur = tree[start].get(i);
@@ -28,6 +28,7 @@ public class Problem1068 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
         int parent = 0;
+        count = 0;
         tree = new ArrayList[N];
         for (int i = 0; i < N; i++) {
             tree[i] = new ArrayList<>();
