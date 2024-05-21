@@ -10,6 +10,20 @@ public class Problem2668 {
     static ArrayList<Integer> result = new ArrayList<>();
     static boolean[] visited;
     static int[] arr;
+    static int target;
+    static ArrayList<Integer> subResult = new ArrayList<>();
+
+    public static void dfs(int start) {
+        int a = arr[start];
+        if (a == target) {
+            result.add(target);
+        }
+        if (!visited[a]) {
+            visited[a] = true;
+            dfs(a);
+            visited[a] = false;
+        }
+    }
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int N = Integer.parseInt(br.readLine());
@@ -20,17 +34,13 @@ public class Problem2668 {
         }
 
         for (int i = 1; i < N+1; i++) {
-            visited[i] = true;
-            if (arr[i] == i) {
-                result.add(i);
-            } else{
-                int a = arr[i];
-                if (arr[a] == i && !visited[a]) {
-                    visited[a] = true;
-                    result.add(i);
-                    result.add(arr[i]);
-                }
+            if(!visited[i]){
+                visited[i] = true;
+                target = i;
+                dfs(i);
+                visited[i] = false;
             }
+
         }
         Collections.sort(result);
         System.out.println(result.size());
