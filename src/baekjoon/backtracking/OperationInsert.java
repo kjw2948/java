@@ -6,44 +6,47 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class OperationInsert {
-    static int[] count = new int[4];
+    static int N;
     static int[] arr;
     static int[] operation = new int[4];
-    static int min = Integer.MIN_VALUE;
-    static int max = Integer.MAX_VALUE;
-    public static void solution(int N, int depth, int num){
-        if(depth==N){
-            if(num>max){
-                max = num;
+    static int min = Integer.MAX_VALUE;
+    static int max = Integer.MIN_VALUE;
+    public static void dfs(int result, int index){
+        if (index == N) {
+            if (result > max) {
+                max = result;
             }
-            if(num<min){
-                min = num;
+            if (result < min) {
+                min = result;
             }
             return;
         }
 
-        for (int i = 1; i < N; i++) {
-            for (int j = 0; j < 4; j++) {
-                if(count[j]<operation[j]){
-                    count[j]++;
-                    if(j==0){
-                        num += arr[i];
-                    }else if(j==1){
-                        num -= arr[i];
-                    }else if(j==2){
-                        num *= arr[i];
-                    }else{
-                        num /= arr[i];
-                    }
-
+        for (int i = 0; i < 4; i++) {
+            if (operation[i] > 0) {
+                operation[i] --;
+                switch (i){
+                    case 0 :
+                        dfs(result + arr[index], index + 1);
+                        break;
+                    case 1:
+                        dfs(result - arr[index], index + 1);
+                        break;
+                    case 2:
+                        dfs(result * arr[index], index + 1);
+                        break;
+                    case 3:
+                        dfs(result / arr[index], index + 1);
+                        break;
                 }
+                operation[i] ++;
             }
         }
     }
     public static void main(String[] args)throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
-        int N = Integer.parseInt(br.readLine());
+        N = Integer.parseInt(br.readLine());
         arr = new int[N];
 
         st = new StringTokenizer(br.readLine());
@@ -54,5 +57,8 @@ public class OperationInsert {
         for (int i = 0; i < 4; i++) {
             operation[i] = Integer.parseInt(st.nextToken());
         }
+        dfs(arr[0], 1);
+        System.out.println(max);
+        System.out.println(min);
     }
 }
