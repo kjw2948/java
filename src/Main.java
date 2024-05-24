@@ -45,9 +45,8 @@ public class Main{
 
 
          */
-        sevenTwentyPlus();
-
-        //sixFourFive();
+        //sevenTwentyPlus();
+        sixFourFive();
     }
 
     public static void sixFourFive() {
