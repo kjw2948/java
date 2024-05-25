@@ -1,61 +1,60 @@
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.StringTokenizer;
+import java.util.*;
 
 class Softeer {
-    static boolean[][] visited;
-    static int[][] arr;
-    static int[][] pos = {{0, 1}, {0, -1}, {1, 0}, {-1, 0}};
-    static int count = 0;
-    static int N;
-    static boolean check;
-    static ArrayList<Integer> result = new ArrayList<>();
-
-    public static void dfs(int x, int y) {
-        visited[x][y] = true;
-        count ++;
-        for (int i = 0; i < 4; i++) {
-            int cur_x = x + pos[i][0];
-            int cur_y = y + pos[i][1];
-
-            if (cur_x >= 0 && cur_y >= 0 && cur_x < N && cur_y < N && !visited[cur_x][cur_y] && arr[cur_x][cur_y] == 1) {
-                dfs(cur_x, cur_y);
-            }
-        }
-    }
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st;
-        N = Integer.parseInt(br.readLine());
-        arr = new int[N][N];
-        visited = new boolean[N][N];
-
-        for (int i = 0; i < N; i++) {
-            st = new StringTokenizer(br.readLine());
-            for (int j = 0; j < N; j++) {
-                arr[i][j] = Integer.parseInt(st.nextToken());
-            }
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        ArrayList<Integer>[] nums = new ArrayList[10];
+        String max = "";
+        String min = "";
+        for (int i = 0; i < 10; i++) {
+            nums[i] = new ArrayList<>();
         }
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < N; j++) {
-                if (!visited[i][j] && arr[i][j] == 1) {
-                    dfs(i, j);
-                    if (count >= 1) {
-                        result.add(count);
-                        count = 0;
+
+        if (st.countTokens() == 6) {
+            while (st.hasMoreTokens()) {
+                String str = st.nextToken();
+                int start = str.charAt(0) - '0';
+                nums[start].add(Integer.parseInt(str));
+            }
+            for (int i = 1; i < 10; i++) {
+                Collections.sort(nums[i]);
+            }
+        } else if (st.countTokens() == 9) {
+            while (st.hasMoreTokens()) {
+                String str = st.nextToken();
+                int start = str.charAt(0) - '0';
+                nums[start].add(Integer.parseInt(str));
+            }
+            for (int i = 1; i < 10; i++) {
+                Collections.sort(nums[i]);
+                int index = 0;
+                if (nums[i].get(0) == i) {
+                    for (int j = 1; j < nums[i].size(); j++) {
+                        if(nums[i].get(j)/10!=0 && nums[i].get(j)%10 < i){
+                            int tmp = nums[i].get(index);
+                            nums[i].set(index, nums[i].get(j));
+                            nums[i].set(j, tmp);
+                            index = j;
+                        }
                     }
                 }
             }
         }
-        Collections.sort(result);
-        System.out.println(result.size());
-        for (int i = 0; i < result.size(); i++) {
-            if (i == result.size() - 1) {
-                System.out.print(result.get(i));
-            }else{
-                System.out.print(result.get(i) + " ");
+        for (int i = 9; i >= 1; i--) {
+            for (int j = nums[i].size()-1; j>=0; j--) {
+                max += Integer.toString(nums[i].get(j));
             }
         }
+
+        for (int i = 1; i < 10; i++) {
+            for (int j = 0; j < nums[i].size(); j++) {
+                min += Integer.toString(nums[i].get(j));
+            }
+        }
+
+        int result = Integer.parseInt(max) + Integer.parseInt(min);
+        System.out.println(result);
     }
 }
