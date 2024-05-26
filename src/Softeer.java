@@ -42,11 +42,6 @@ class Softeer {
                 }
             }
         }
-        for (int i = 9; i >= 1; i--) {
-            for (int j = nums[i].size()-1; j>=0; j--) {
-                max += Integer.toString(nums[i].get(j));
-            }
-        }
 
         for (int i = 1; i < 10; i++) {
             for (int j = 0; j < nums[i].size(); j++) {
