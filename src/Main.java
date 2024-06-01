@@ -51,38 +51,42 @@ public class Main{
 
     public static void sixFourFive() {
         Random random = new Random();
-        String winner = "";
         int[] arr = new int[6];
-        for (int i = 0; i < 6; i++) {
-            int n = random.nextInt(0,45)+1;
-            if(i==0){
-                arr[i] = n;
-            }
-            for (int j = 0; j < i; j++) {
-                if(n==arr[j]){
-                    i--;
-                    break;
-                }
-                if(j==i-1){
+        for (int k = 0; k < 5; k++) {
+            String winner = "";
+            for (int i = 0; i < 6; i++) {
+                int n = random.nextInt(0, 45) + 1;
+                if (i == 0) {
                     arr[i] = n;
                 }
+                for (int j = 0; j < i; j++) {
+                    if (n == arr[j]) {
+                        i--;
+                        break;
+                    }
+                    if (j == i - 1) {
+                        arr[i] = n;
+                    }
+                }
             }
+            for (int i = 0; i < 6; i++) {
+                winner = winner + Integer.toString(arr[i]) + " ";
+            }
+            System.out.println(winner);
         }
-        for (int i = 0; i < 6; i++) {
-            winner = winner + Integer.toString(arr[i]) +" ";
-        }
-        System.out.println(winner);
     }
     public static void sevenTwentyPlus() {
         Random random = new Random();
-        String winner = " ";
-        for (int i = 0; i < 7; i++) {
-            if(i==0){
-                winner = Integer.toString(random.nextInt(0,5)+1) + winner;
-            } else{
-                winner += Integer.toString(random.nextInt(0,10));
+        for (int j = 0; j < 5; j++) {
+            String winner = " ";
+            for (int i = 0; i < 7; i++) {
+                if (i == 0) {
+                    winner = Integer.toString(random.nextInt(0, 5) + 1) + winner;
+                } else {
+                    winner += Integer.toString(random.nextInt(0, 10));
+                }
             }
+            System.out.println(winner);
         }
-        System.out.println(winner);
     }
 }
