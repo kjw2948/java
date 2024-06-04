@@ -11,5 +11,9 @@ public class MethodMain2 {
 
         AnimalMethod.checkUp(dog);
         AnimalMethod.checkUp(cat);
+
+        Dog targetDog = new Dog("큰 멍멍이", 500);
+        Dog biggerDog = AnimalMethod.bigger(targetDog, dog);
+        System.out.println("biggerDog = " + biggerDog);
     }
 }
