@@ -3,47 +3,75 @@ package baekjoon.implementation;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Deque;
+import java.util.LinkedList;
 
 public class Problem21314 {
+    static Deque<Character> dequeMax;
+    static Deque<Character> dequeMin;
+    static String max = "";
+    static String min = "";
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String mk = br.readLine();
 
-        String[] mkArray = mk.split("K");
-
-        String max = "";
-        String min = "";
-        boolean checkLastK;
-        if (mk.charAt(mk.length() - 1) == 'K') {
-            checkLastK = true;
-        }else{
-            checkLastK = false;
-        }
-
-        System.out.println(mkArray.length);
+        char[] mkArray = mk.toCharArray();
+        dequeMax = new LinkedList<>();
+        dequeMin = new LinkedList<>();
+        // max : k 나오면 지금까지 나온거에 K까지 합쳐서 계산
+        // min : k 나오면 지금까지 나온 M들만 계산 후 K는 단독
 
         for (int i = 0; i < mkArray.length; i++) {
-            int len = mkArray[i].length();
-            if (len == 0) {
-                min += "5";
-                max += "5";
-                continue;
+            char letter = mkArray[i];
+            if (letter == 'M') {
+                dequeMax.addLast(letter);
+                dequeMin.addLast(letter);
+                if (i == mkArray.length - 1) {
+                    lastM();
+                }
+            } else {
+                calMax();
+                calMin();
             }
-            String num = "1";
-            for (int j = 0; j < len-1; j++) {
-                num += "0";
-            }
-            if (!checkLastK && i == mkArray.length-1) {
-                min += num;
-                max += num;
-                break;
-            }
-            min += num + "5";
-            num += "0";
-            max += num.replace('1', '5');
         }
-
         System.out.println(max);
         System.out.println(min);
+    }
+
+    private static void lastM() {
+        String str = "1";
+        max += "1";
+        dequeMax.pop();
+        while (!dequeMax.isEmpty()) {
+            str += "0";
+            max += "1";
+            dequeMax.pop();
+        }
+        min += str;
+    }
+
+    private static void calMax() {
+        String str = "";
+        while (!dequeMax.isEmpty()) {
+            dequeMax.pop();
+            str += "0";
+        }
+        str = "5" + str;
+        max += str;
+    }
+
+    private static void calMin() {
+        String str = "1";
+        if (dequeMin.isEmpty()) {
+            min += "5";
+            return;
+        }
+        dequeMin.pop();
+        while (!dequeMin.isEmpty()) {
+            dequeMin.pop();
+            str += "0";
+        }
+        str += "5";
+        min += str;
     }
 }
