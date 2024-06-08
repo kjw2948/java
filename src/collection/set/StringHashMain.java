@@ -23,6 +23,8 @@ public class StringHashMain {
         System.out.println(hashIndex(hashB));
         System.out.println(hashIndex(hashAB));
 
+
+
     }
 
     static int hashCode(String str) {
@@ -37,4 +39,5 @@ public class StringHashMain {
     static int hashIndex(int num) {
         return  num % 10;
     }
+
 }
