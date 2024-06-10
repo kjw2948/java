@@ -10,13 +10,14 @@ public class Problem14719 {
     static int[] map;
     static int leftWall;
     static int rightWall;
-    static int max;
+    static int W;
+    static int H;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
         st = new StringTokenizer(br.readLine());
-        int H = Integer.parseInt(st.nextToken());
-        int W = Integer.parseInt(st.nextToken());
+        H = Integer.parseInt(st.nextToken());
+        W = Integer.parseInt(st.nextToken());
         map = new int[W];
         st = new StringTokenizer(br.readLine());
 
@@ -27,40 +28,47 @@ public class Problem14719 {
         for (int i = 0; i < W; i++) {
             map[i] = Integer.parseInt(st.nextToken());
         }
-        leftWall = map[0] > map[1] ? 0 : 1;
-        rightWall = leftWall == 0 ? 2 : 3;
-        max = rightWall;
-        if (W == 3 && rightWall == 3) {
-            System.out.println(0);
-            return;
-        }
 
-        // left보다 right가 값이 크거나 같아지는경우 && 남은게 전부 left > right인 경우 -> 그중에서 최대값
+        leftWall = 0;
+        rightWall = 1;
+
+
         while (rightWall < W) {
-            for (int i = rightWall; i < W; i++) {
-                if (map[leftWall] <= map[i]) {
+            setNext();  // 물이 고일 수 있는 벽 찾기 : 시작벽 높이 > 바로 옆에 벽 높이
+            if (rightWall >= W-1) {
+                break;
+            }
+            for (int i = rightWall+1; i < W; i++) {
+                if (map[rightWall] < map[i] && map[leftWall] <= map[i]) {
                     water(leftWall, i);
                     leftWall = i;
                     rightWall = i+1;
-                    max = rightWall;
-                    break;
-                }else{
-                    if(map[rightWall] <= map[i]){
-                        water(leftWall, i);
-                        leftWall = i;
-                        rightWall = i+1;
-                    }
+                    setNext();
+                } else if (map[rightWall] < map[i] && map[leftWall] > map[i]) {
+                    water(leftWall, i);
+                    rightWall = i;
                 }
             }
         }
         System.out.println(result);
-
     }
 
     private static void water(int left, int right) {
         int num = Math.min(map[left], map[right]);
         for (int i = left+1; i < right; i++) {
-            result += (num - map[i]);
+            result += num - map[i];
+            map[i] = num;
+        }
+    }
+
+    private static void setNext() {
+        while (rightWall < W && map[leftWall] <= map[rightWall]) {
+            leftWall = rightWall;
+            rightWall ++;
+            if (rightWall == W) {
+                rightWall --;
+                break;
+            }
         }
     }
 }
