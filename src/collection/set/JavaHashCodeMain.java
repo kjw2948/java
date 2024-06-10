@@ -25,6 +25,9 @@ public class JavaHashCodeMain {
         Member member1 = new Member("idA");
         Member member2 = new Member("idA");
 
+        System.out.println(member1.equals(member2));
+        System.out.println("----------------------------------------------");
+
         //equals, hashCode를 오버라이딩 하지 않은 경우, 한 경우를 비교
         System.out.println("(member1==member2) = " + (member1==member2)); //false: 서로 다른 객체이므로 참조값이 다르기 때문에
         System.out.println("(member1.equals(member2)) = " + (member1.equals(member2))); // true: id가 같으면 같다고 정의했기 떄문
