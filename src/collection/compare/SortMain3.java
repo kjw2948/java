@@ -16,5 +16,14 @@ public class SortMain3 {
         Arrays.sort(array);
         System.out.println(Arrays.toString(array));
 
+        //추가
+        System.out.println("IdComparator 정렬");
+        Arrays.sort(array, new IdComparator());
+        System.out.println(Arrays.toString(array));
+
+        System.out.println("IdComparator reverse 정렬");
+        Arrays.sort(array, new IdComparator().reversed());
+        System.out.println(Arrays.toString(array));
+
     }
 }
