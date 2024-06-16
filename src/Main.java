@@ -11,8 +11,8 @@ public class Main{
         int[] checkCount = new int[8];
         int index = 0;
         int count = 0;
-        //sevenTwentyPlus();
-        sixFourFive();
+        sevenTwentyPlus();
+        //sixFourFive();
     }
 
     public static void sixFourFive() {
