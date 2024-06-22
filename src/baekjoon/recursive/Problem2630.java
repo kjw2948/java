@@ -22,8 +22,9 @@ public class Problem2630 {
             }
         }
         paper(N, 0, 0);
-        System.out.println(blue);
+
         System.out.println(white);
+        System.out.println(blue);
     }
 
     static void paper(int size, int x, int y) {
@@ -31,37 +32,41 @@ public class Problem2630 {
             return;
         }
         int num = arr[x][y];
-        boolean isSame = true;
-        int whiteColor = 0;
+        boolean isPaper = true;
         int blueColor = 0;
-        int newSize = size /2;
-        for (int i = x; i < x+newSize; i++) {
-            for (int j = y; j < y+newSize; j++) {
+        int whiteColor = 0;
+        for (int i = x; i < x+size; i++) {
+            for (int j = y; j < y+size; j++) {
                 if (num != arr[i][j]) {
-                    isSame = false;
-                    whiteColor = 0;
+                    isPaper = false;
                     blueColor = 0;
+                    whiteColor = 0;
                     break;
                 }
-                if (arr[i][j] == 0) {
-                    whiteColor++;
-                }
                 if (arr[i][j] == 1) {
-                    blueColor++;
+                    blueColor ++;
+                }
+                if (arr[i][j] == 0) {
+                    whiteColor ++;
                 }
             }
-            if (!isSame) {
+            if (!isPaper) {
                 break;
             }
+        }
+        if (blueColor != 0) {
+            blue ++;
         }
         if (whiteColor != 0) {
             white ++;
         }
-        if (blueColor != 0) {
-            blue++;
+        int newSize = size/2;
+
+        if(!isPaper) {
+            paper(newSize, x, y);
+            paper(newSize, x + newSize, y);
+            paper(newSize, x, y + newSize);
+            paper(newSize, x + newSize, y + newSize);
         }
-        paper(newSize, x+newSize, y);
-        paper(newSize, x, y+newSize);
-        paper(newSize, x+newSize, y+newSize);
     }
 }
