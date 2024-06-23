@@ -23,6 +23,7 @@ public class Problem2630 {
         }
         paper(N, 0, 0);
 
+
         System.out.println(white);
         System.out.println(blue);
     }
