@@ -5,12 +5,11 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Problem12919 {
-    static String s;
-    static String t;
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        s = br.readLine();
-        t = br.readLine();
+        String s = br.readLine();
+        String t = br.readLine();
         int result = dfs(s, t);
         System.out.println(result);
     }
