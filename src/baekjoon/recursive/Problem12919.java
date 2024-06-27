@@ -5,37 +5,35 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Problem12919 {
-    static boolean isValid;
+    static String s;
+    static String t;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringBuilder S =  new StringBuilder(br.readLine());
-        String T = br.readLine();
-
-
-        SandT(S, T);
-        if (isValid) {
-            System.out.println(1);
-        } else {
-            System.out.println(0);
-        }
-
-
+        s = br.readLine();
+        t = br.readLine();
+        int result = dfs(s, t);
+        System.out.println(result);
     }
-    static void SandT(StringBuilder S, String T) {
-        if (S.toString().equals(T)) {
-            isValid = true;
-            return;
-        }
-        if (T.length() <= S.length()) {
-            return;
-        }
-        StringBuilder S2 = new StringBuilder(S);
 
-        S.append("A");
-        S2.append("B");
-        S2.reverse();
+    private static int dfs(String s, String t) {
+        if (s.length() == t.length()) {
+            if (s.equals(t)) {
+                return 1;
+            } else {
+                return 0;
+            }
+        }
+        int num = 0;
+        if (t.charAt(0) == 'B') {
+            StringBuilder sb = new StringBuilder(t.substring(1));
+            String string = sb.reverse().toString();
+            num += dfs(s, string);
+        }
+        if (t.charAt(t.length() - 1) == 'A') {
+            num += dfs(s, t.substring(0, t.length()-1));
+        }
 
-        SandT(S, T);
-        SandT(S2, T);
+        return num > 0 ? 1 : 0;
     }
+
 }
