@@ -37,6 +37,7 @@ public class Problem106 {
                 }
             }
         }
+        System.out.println(cost[0]);
     }
 
     static class Hotel {
