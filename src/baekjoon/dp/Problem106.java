@@ -57,4 +57,6 @@ public class Problem106 {
             return this.people;
         }
     }
+
+
 }
