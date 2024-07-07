@@ -48,7 +48,6 @@ public class Problem106 {
             this.money = money;
             this.people = people;
         }
-
         public int getMoney() {
             return this.money;
         }
