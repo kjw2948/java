@@ -12,6 +12,7 @@ public class Main{
         int index = 0;
         int count = 0;
         sevenTwentyPlus();
+
         System.out.println("==================================");
         sixFourFive();
     }
