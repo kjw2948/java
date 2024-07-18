@@ -12,4 +12,8 @@ public class OutOfOffice extends AbstractEvent{
     public void print() {
 
     }
+    @Override
+    public boolean support(EventType eventType) {
+        return eventType == EventType.OUT_OF_OFFICE;
+    }
 }
