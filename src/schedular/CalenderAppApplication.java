@@ -12,18 +12,17 @@ public class CalenderAppApplication {
         participants.add("Kim");
         participants.add("Danny");
 
-        List<AbstractEvent> list = new ArrayList<>();
+        Schedule schedule = new Schedule();
         Meeting meeting1 = new Meeting(1, "모각코", ZonedDateTime.now(), ZonedDateTime.now().plusHours(2),
                participants , "room1", "코딩");
         Meeting meeting2 = new Meeting(3, "테스트", ZonedDateTime.now(), ZonedDateTime.now().plusHours(2),
                 participants , "room1", "코딩");
 
         Todo todo = new Todo(2, "코테문제 풀기", ZonedDateTime.now(), ZonedDateTime.now().plusHours(2), "스터디");
-        list.add(meeting1);
-        list.add(meeting2);
-        list.add(todo);
+        schedule.add(meeting1);
+        schedule.add(meeting2);
+        schedule.add(todo);
 
-        list.stream().filter(each -> each.support(EventType.TO_DO))
-                .forEach(Event::print);
+        schedule.printBy(EventType.TO_DO);
     }
 }
