@@ -13,16 +13,17 @@ public class CalenderAppApplication {
         participants.add("Danny");
 
         Schedule schedule = new Schedule();
-        Meeting meeting1 = new Meeting(1, "모각코", ZonedDateTime.now(), ZonedDateTime.now().plusHours(2),
+        Meeting meeting1 = new Meeting(1, "모각코", ZonedDateTime.now(), ZonedDateTime.now().plusHours(1),
                participants , "room1", "코딩");
-        Meeting meeting2 = new Meeting(3, "테스트", ZonedDateTime.now(), ZonedDateTime.now().plusHours(2),
+        Meeting meeting2 = new Meeting(3, "테스트", ZonedDateTime.now().plusHours(4), ZonedDateTime.now().plusHours(6),
                 participants , "room1", "코딩");
 
-        Todo todo = new Todo(2, "코테문제 풀기", ZonedDateTime.now(), ZonedDateTime.now().plusHours(2), "스터디");
+        Todo todo = new Todo(2, "코테문제 풀기", ZonedDateTime.now().plusHours(7), ZonedDateTime.now().plusHours(8), "스터디");
         schedule.add(meeting1);
         schedule.add(meeting2);
         schedule.add(todo);
 
-        schedule.printBy(EventType.TO_DO);
+        //schedule.printBy(EventType.TO_DO);
+        schedule.printAll();
     }
 }
