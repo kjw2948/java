@@ -21,6 +21,7 @@ public class CalenderAppApplication {
                 participants , "room2", "코딩2");
 
         Todo todo = new Todo(2, "코테문제 풀기", ZonedDateTime.now().plusHours(7), ZonedDateTime.now().plusHours(8), "스터디");
+        Todo todo2 = new Todo(5, "스프링 공부하기", ZonedDateTime.now().plusHours(7), ZonedDateTime.now().plusHours(8), "스터디");
         schedule.add(meeting1);
         schedule.add(meeting2);
         schedule.add(todo);
