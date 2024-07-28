@@ -11,9 +11,9 @@ public class Main{
         int[] checkCount = new int[8];
         int index = 0;
         int count = 0;
-        //sevenTwentyPlus();
+        sevenTwentyPlus();
 
-        //System.out.println("==================================");
+        System.out.println("==================================");
         sixFourFive();
     }
 
