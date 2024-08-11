@@ -1,27 +1,26 @@
 package nocode.array;
 
+import java.util.Arrays;
+
 // leetcode 283
 public class MoveZeros {
     public static void main(String[] args) {
-
+        int[] nums = {1, 0, 1, 0, 2, 2};
+        nums = moveZero(nums);
+        System.out.println(Arrays.toString(nums));
     }
-
-    // 0 5 0 1 1 3    --> 5 1 1 3 0 0   5 0 0 1 1 3 
+    // 1 0 1 0 2 2
     static int[] moveZero(int[] nums) {
-        int zero = 0;
-        int non = 0;
-
-        for (int i = 1; i < nums.length-1; i++) {
-            int temp = nums[i];
+        int wIdx = 0;
+        for (int i = 0; i < nums.length; i++) {
             if (nums[i] != 0) {
-                if(nums[zero]!=0){
-                    continue;
-                }
-                nums[i] = nums[zero];
-                nums[zero] = temp;
-            } else {
-
+                nums[wIdx] = nums[i];
+                wIdx++;
             }
         }
+        for (int i = wIdx; i < nums.length; i++) {
+            nums[i] = 0;
+        }
+        return nums;
     }
 }
