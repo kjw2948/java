@@ -1,10 +1,16 @@
 package younghan.list;
 
-public class MyLinkedList<E> {
-
+public class MyLinkedList<E> implements MyList<E>{
     private Node<E> first;
     private int size = 0;
 
+    @Override
+    public void add(E e) {
+        Node<E> newNode = new Node<>(e);
+        Node<E> lastNode = getLastNode();
+        lastNode.next = newNode;
+        size++;
+    }
 
     public void add(int index, E e) {
         Node<E> newNode = new Node<>(e);
@@ -76,8 +82,6 @@ public class MyLinkedList<E> {
     public int size() {
         return size;
     }
-
-
 
     @Override
     public String toString() {
