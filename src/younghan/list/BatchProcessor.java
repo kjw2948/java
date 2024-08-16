@@ -15,4 +15,8 @@ public class BatchProcessor {
         long endTime = System.currentTimeMillis();
         System.out.println("크기 : " + size +" 계산 시간 : "+ (endTime - startTime) + " ms");
     }
+
+    public void checkList() {
+        System.out.println(this.list.getClass());
+    }
 }
