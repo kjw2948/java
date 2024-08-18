@@ -19,4 +19,19 @@ public class BatchProcessor {
     public void checkList() {
         System.out.println(this.list.getClass());
     }
+
+    public static void main(String[] args) {
+        MyList<Integer> list = new MyLinkedList<>();
+        list.add(1);
+        list.add(2);
+        list.add(3);
+        list.add(4);
+        list.add(0);
+        if (list.contains(5)) {
+            System.out.println("포함!");
+            System.out.println(list.indexOf(0));
+        } else {
+            System.out.println("포함 안되어있음!");
+        }
+    }
 }

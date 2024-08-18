@@ -7,6 +7,11 @@ public class MyLinkedList<E> implements MyList<E>{
     @Override
     public void add(E e) {
         Node<E> newNode = new Node<>(e);
+        if (size == 0) {
+            first = newNode;
+            size ++;
+            return;
+        }
         Node<E> lastNode = getLastNode();
         lastNode.next = newNode;
         size++;
@@ -94,10 +99,11 @@ public class MyLinkedList<E> implements MyList<E>{
     @Override
     public boolean contains(E o) {
         Node<E> now = first;
-        while (now.next != null) {
+        while (now != null) {
             if (now.item == o) {
                 return true;
             }
+            now = now.next;
         }
         return false;
     }
