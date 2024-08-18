@@ -89,4 +89,13 @@ public class MyArrayList<E> implements MyList<E>{
         int newCapacity = oldCapacity * 2;
         elementData = Arrays.copyOf(elementData, newCapacity);
     }
+
+    public boolean contains(E o) {
+        for (int i = 0; i < size; i++) {
+            if (elementData[i] == o) {
+                return true;
+            }
+        }
+        return false;
+    }
 }

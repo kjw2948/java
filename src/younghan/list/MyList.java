@@ -15,4 +15,6 @@ public interface MyList<E> {
 
     int indexOf(E o);
 
+    boolean contains(E o);
+
 }

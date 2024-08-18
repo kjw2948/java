@@ -90,6 +90,18 @@ public class MyLinkedList<E> implements MyList<E>{
                 ", size=" + size +
                 '}';
     }
+
+    @Override
+    public boolean contains(E o) {
+        Node<E> now = first;
+        while (now.next != null) {
+            if (now.item == o) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     private static class Node<E> {
         E item;
         Node<E> next;
