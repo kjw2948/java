@@ -33,5 +33,7 @@ public class BatchProcessor {
         } else {
             System.out.println("포함 안되어있음!");
         }
+
+        System.out.println("");
     }
 }
