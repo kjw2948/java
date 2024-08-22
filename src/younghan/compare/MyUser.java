@@ -28,7 +28,7 @@ public class MyUser implements Comparable<MyUser>{
 
     @Override
     public int compareTo(MyUser o) {
-        return (this.age < o.age ? -1 : (this.age == o.age) ? 0 : 1)*-1; // 오름차순
+        return this.age < o.age ? -1 : (this.age == o.age) ? 0 : 1; // 오름차순
     }
 
     @Override
