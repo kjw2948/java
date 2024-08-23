@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Random;
 
 public class Main{
@@ -21,7 +22,6 @@ public class Main{
         Random random = new Random();
         int[] arr = new int[6];
         for (int k = 0; k < 5; k++) {
-            String winner = "";
             for (int i = 0; i < 6; i++) {
                 int n = random.nextInt(0, 45) + 1;
                 if (i == 0) {
@@ -37,10 +37,8 @@ public class Main{
                     }
                 }
             }
-            for (int i = 0; i < 6; i++) {
-                winner = winner + Integer.toString(arr[i]) + " ";
-            }
-            System.out.println(winner);
+            Arrays.sort(arr);
+            System.out.println(Arrays.toString(arr));
         }
     }
     public static void sevenTwentyPlus() {
