@@ -1,7 +1,6 @@
 package younghan.ex;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -49,7 +48,7 @@ public class Ex1 {
             for (Card card : playerDeck) {
                 count ++;
                 sb.append(card.getNumber());
-                sb.append("(").append(card.getIcon()).append(")");
+                sb.append("(").append(card.getIcon().getIcon()).append(")");
                 if (count < 5) {
                     sb.append(", ");
                 }
