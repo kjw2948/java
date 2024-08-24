@@ -28,7 +28,6 @@ public class Ex1 {
             System.out.println("플레이어2의 승리");
         } else {
             System.out.println("무승부");
-
         }
     }
 
