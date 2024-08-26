@@ -63,6 +63,10 @@ public class Ex1 {
             }
             return total;
         }
+
+        public Card drawCard() {
+            return new Card(Icon.DIAMOND, 10);
+        }
     }
 
 }
