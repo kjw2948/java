@@ -6,7 +6,9 @@ import java.util.List;
 import static nocode.tree.OrderTraversal.Node;
 public class PathSum {
     public static ArrayList<List<Integer>> solution(OrderTraversal tree, int target) {
-
+        int sum = 0;
+        sum += tree.data;
+        return new ArrayList<>();
     }
     public static void main(String[] args) {
         OrderTraversal tree = new OrderTraversal();
