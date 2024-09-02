@@ -11,6 +11,7 @@ public class Network {
     }
 
     public static void dfs(int n) {
+        visit[n] = true;
 
     }
 
