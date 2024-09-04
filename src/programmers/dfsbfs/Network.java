@@ -20,6 +20,9 @@ public class Network {
         int[][] computers = {{1, 1, 0}, {1, 1, 0}, {0, 0, 1}};
         System.out.println(solution(n, computers));
 
+        float a1 = 1;
+        double a2 = (double) a1;
+        System.out.println(a1);
     }
 
 }
