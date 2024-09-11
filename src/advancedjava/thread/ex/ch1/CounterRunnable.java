@@ -1,4 +1,4 @@
-package advancedjava.thread.ex;
+package advancedjava.thread.ex.ch1;
 
 import static advancedjava.util.MyLogger.log;
 

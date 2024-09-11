@@ -1,4 +1,4 @@
-package advancedjava.thread.ex;
+package advancedjava.thread.ex.ch1;
 
 import static advancedjava.util.MyLogger.log;
 
@@ -14,6 +14,7 @@ public class Ex3 {
                 }
             }
         };
-        runnable.run();
+        Thread thread = new Thread(runnable, "counter");
+        thread.start();
     }
 }

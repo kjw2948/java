@@ -1,6 +1,4 @@
-package advancedjava.thread.ex;
-
-import static advancedjava.util.MyLogger.log;
+package advancedjava.thread.ex.ch1;
 
 public class Ex2 {
     public static void main(String[] args) {
