@@ -10,6 +10,8 @@ public class ThreadStateMain {
         thread.start();
         Thread.sleep(500);
         log("myThread.state3 : " + thread.getState());
+        Thread.sleep(4000);
+        log("myThread.state5 : " + thread.getState());
     }
 
     static class MyRunnable implements Runnable {
