@@ -11,6 +11,7 @@ public class JoinMainV0 {
         Thread thread1 = new Thread(new Job(), "Thread-1");
         Thread thread2 = new Thread(new Job(), "Thread-2");
         Thread thread3 = new Thread(() -> log("hello"));
+        Thread thread4 = new Thread(() -> log("Thread4"));
 
         thread1.start();
         thread2.start();
