@@ -12,4 +12,8 @@ public class ThreadUtils {
             throw new RuntimeException(e);
         }
     }
+
+    public static void get() {
+        log("get ");
+    }
 }
