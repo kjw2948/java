@@ -16,8 +16,8 @@ public class JoinMainV2 {
         thread2.start();
 
         log("join() - main 스레드가 thread1, thread2 종료까지 대기");
-        thread1.join();
-        thread2.join();
+        thread1.join(500);
+        thread2.join(500);
 
         log("main 스레드 대기 완료");
 
