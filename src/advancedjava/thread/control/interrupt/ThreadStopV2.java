@@ -24,7 +24,7 @@ public class ThreadStopV2 {
             try {
                 while (runFlag) {
                     log("작업 중 ");
-                    Thread.sleep(4000);
+                    Thread.sleep(3000);
                 }
             } catch (InterruptedException e) {
                 log("work 스레드 인터럽트 상태2 = " + Thread.currentThread().isInterrupted());
