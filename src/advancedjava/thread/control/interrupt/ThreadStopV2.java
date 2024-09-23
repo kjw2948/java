@@ -34,6 +34,5 @@ public class ThreadStopV2 {
             log("자원 정리");
             log("작업 끝");
         }
-
     }
 }
