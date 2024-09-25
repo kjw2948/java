@@ -44,9 +44,9 @@ public class MyPrinterV2 {
             }
             log("작업 완료");
         }
-
         public void add(String input) {
             jobQueue.offer(input);
         }
+
     }
 }
