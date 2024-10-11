@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class Day7_27737 {
+public class Day3_27737 {
     static boolean[][] visit;
     static int[][] arr;
     static int n,m,k;
