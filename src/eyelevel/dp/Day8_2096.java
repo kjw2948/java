@@ -6,43 +6,41 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class Day8_2096 {
-    static int[][] maxMap, minMap;
-    static int N, min, max;
+
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
-
-        N = Integer.parseInt(st.nextToken());
-        maxMap = new int[N][N];
-        minMap = new int[N][N];
+        StringTokenizer st;
+        int N = Integer.parseInt(br.readLine());
+        int[] maxDp = new int[3];
+        int[] minDp = new int[3];
 
         for (int i = 0; i < N; i++) {
             st = new StringTokenizer(br.readLine());
-            for (int j = 0; j < N; j++) {
-                maxMap[i][j] = Integer.parseInt(st.nextToken());
-                minMap[i][j] = maxMap[i][j];
+
+            int x1 = Integer.parseInt(st.nextToken());
+            int x2 = Integer.parseInt(st.nextToken());
+            int x3 = Integer.parseInt(st.nextToken());
+
+            if (i == 0) {
+                maxDp[0] = minDp[0] = x1;
+                maxDp[1] = minDp[1] = x2;
+                maxDp[2] = minDp[2] = x3;
+            } else {
+                // 최댓값을 구하는 dp 배열
+                int beforeMaxDp_0 = maxDp[0], beforeMaxDp_2 = maxDp[2];
+                maxDp[0] = Math.max(maxDp[0], maxDp[1]) + x1;
+                maxDp[2] = Math.max(maxDp[1], maxDp[2]) + x3;
+                maxDp[1] = Math.max(Math.max(beforeMaxDp_0, maxDp[1]), beforeMaxDp_2) + x2;
+
+                // 최솟값을 구하는 dp 배열
+                int beforeMinDp_0 = minDp[0], beforeMinDp_2 = minDp[2];
+                minDp[0] = Math.min(minDp[0], minDp[1]) + x1;
+                minDp[2] = Math.min(minDp[1], minDp[2]) + x3;
+                minDp[1] = Math.min(Math.min(beforeMinDp_0, minDp[1]), beforeMinDp_2) + x2;
             }
         }
-
-        for (int i = 0; i < N; i++) {
-            min = Integer.min(min, minMap[0][i]);
-            max = Integer.max(max, maxMap[0][i]);
-        }
-        // 1~N번째 라인을 돌면서 각 점마다 최대 / 최소값을 저장
-
-        for (int i = 1; i < N; i++) {
-            dp(i);
-        }
-
-
-    }
-
-    static void dp(int n) {
-
-    }
-
-    static void check(int x, int y1, int y2) {
-
+        System.out.println(Math.max(maxDp[0], Math.max(maxDp[1], maxDp[2])) + " "
+                + Math.min(minDp[0], Math.min(minDp[1], minDp[2])));
     }
 }
