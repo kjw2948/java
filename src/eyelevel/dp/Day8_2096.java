@@ -28,16 +28,16 @@ public class Day8_2096 {
                 maxDp[2] = minDp[2] = x3;
             } else {
                 // 최댓값을 구하는 dp 배열
-                int beforeMaxDp_0 = maxDp[0], beforeMaxDp_2 = maxDp[2];
+                int maxFirst = maxDp[0], maxLast = maxDp[2];
                 maxDp[0] = Math.max(maxDp[0], maxDp[1]) + x1;
                 maxDp[2] = Math.max(maxDp[1], maxDp[2]) + x3;
-                maxDp[1] = Math.max(Math.max(beforeMaxDp_0, maxDp[1]), beforeMaxDp_2) + x2;
+                maxDp[1] = Math.max(Math.max(maxFirst, maxDp[1]), maxLast) + x2;
 
                 // 최솟값을 구하는 dp 배열
-                int beforeMinDp_0 = minDp[0], beforeMinDp_2 = minDp[2];
+                int minFirst = minDp[0], minLast = minDp[2];
                 minDp[0] = Math.min(minDp[0], minDp[1]) + x1;
                 minDp[2] = Math.min(minDp[1], minDp[2]) + x3;
-                minDp[1] = Math.min(Math.min(beforeMinDp_0, minDp[1]), beforeMinDp_2) + x2;
+                minDp[1] = Math.min(Math.min(minFirst, minDp[1]), minLast) + x2;
             }
         }
         System.out.println(Math.max(maxDp[0], Math.max(maxDp[1], maxDp[2])) + " "
