@@ -57,30 +57,3 @@ weight : 4
 movingTime : 6
 
 memo : 0 1 2
-
-
-다리     초  무게
-  7     1   7
-- -
-
-큐에 넣은 순서 : 마지막 -------------> 처음
-truck :   6 5 4 7
-bridge : 0 0
-
-time = 1            time = 2            time = 3        time = 4
-truck : 6 5 4       truck : 6 5 4       truck : 6 5     truck = 6
-bridge : 7 0        bridge : 0 7        bridge : 4 0    bridge = 5 4
-
-time = 5            time = 6            time = 7        time = 8
-truck = 6           truck = empty       truck = empty   truck = empty
-bridge = 0 5        bridge = 6 0        bridge =   6    bridge = empty
-
-
-
-
-
-
-
-time =4
-
-
