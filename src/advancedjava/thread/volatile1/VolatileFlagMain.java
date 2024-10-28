@@ -19,8 +19,9 @@ public class VolatileFlagMain {
 
     static class MyTask implements Runnable {
 
-        boolean runFlag = true;
-        //volatile boolean runFlag = true;
+        //boolean runFlag = true;
+        volatile boolean runFlag = true; // volatile 키워드 추가하면 캐시메모리 말고 메인메모리에 직접 접근
+        // 여러 스레드가 같은 값을 읽고 사용해야한다면 volatile 키워드 사용! but 속도가 느려짐 (캐시메모리가 엄청 빠르기때문)
         @Override
         public void run() {
             log("task 시작");
