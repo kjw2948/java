@@ -3,7 +3,7 @@ package advancedjava.thread.sync.test;
 
 import static advancedjava.util.MyLogger.log;
 
-// 지역 변수의 공유
+// 지역 변수의 공유 --> 지역변수는 스레드 각각 스택에 생성되므로 공유되지 않는다!
 public class SyncTest2Main {
     public static void main(String[] args) throws InterruptedException {
         MyCounter myCounter = new MyCounter();
