@@ -12,6 +12,7 @@ public class BankMain {
         t1.start();
         t2.start();
 
+
         sleep(1000);
 
         t1.join();
