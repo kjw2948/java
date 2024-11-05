@@ -9,6 +9,7 @@ public class BankReview implements BankAccount {
 
     private int balance;
 
+    // Lock 사용
     private final Lock lock = new ReentrantLock();
 
     public BankReview(int initBalance) {
