@@ -18,6 +18,7 @@ public class BankReview implements BankAccount {
     @Override
     public boolean withdraw(int amount) {
         lock.lock();
+
         try {
             if(balance < amount){
                 return false;
