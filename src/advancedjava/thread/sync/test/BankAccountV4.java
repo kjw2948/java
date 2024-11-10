@@ -49,6 +49,7 @@ public class BankAccountV4 implements BankAccount {
     }
 
     @Override
+    //try catch
     public int getBalance() {
         lock.lock();
         try {
