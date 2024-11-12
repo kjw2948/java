@@ -54,7 +54,7 @@ public class Day1_1326 {
             // 역방향
             next = cur - arr[cur];
             while (true) {
-                if (next < 0 || arr[next] != -1) {
+                if (next <= 0 || visit[next] != -1) {
                     break;
                 }
                 if (visit[next] == -1) {
@@ -63,14 +63,17 @@ public class Day1_1326 {
                     next -= arr[cur];
                 }
                 if (next == b) {
-                    return visit[next];
+                    return move + 1;
                 }
             }
             // 순방향
             next = cur + arr[cur];
             while (true) {
-                if (next > N || arr[next] != -1) {
+                if (next > N) {
                     break;
+                }
+                if (visit[next] != -1) {
+                    continue;
                 }
 
                 if (visit[next] == -1) {
@@ -79,7 +82,7 @@ public class Day1_1326 {
                     next += arr[cur];
                 }
                 if (next == b) {
-                    return visit[next];
+                    return move+1;
                 }
             }
         }
