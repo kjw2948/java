@@ -86,8 +86,6 @@ public class Day1_1326 {
                 }
             }
         }
-
-
         return visit[b];
     }
 
