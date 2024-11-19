@@ -88,7 +88,6 @@ public class Day1_1326 {
         }
         return visit[b];
     }
-
     /*
     private static int bfs() {
         Queue<int[]> q = new ArrayDeque<>();
