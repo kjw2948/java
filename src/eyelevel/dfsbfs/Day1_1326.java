@@ -88,53 +88,6 @@ public class Day1_1326 {
         }
         return visit[b];
     }
-    /*
-    private static int bfs() {
-        Queue<int[]> q = new ArrayDeque<>();
-        q.add(new int[]{a, 0});
-
-        visit[a] = true;
-
-        while (!q.isEmpty()) {
-            int[] cur = q.poll();
-            int num = arr[cur[0]];
-            int next = cur[0];
-
-            // 순방향
-            while (true) {
-                next += num;
-                if (next > N) break;
-                if (visit[next]) continue;
-                visit[next] = true;
-
-                if (next == b) {
-                    return cur[1] + 1;
-                }
-
-                q.add(new int[]{next, cur[1] + 1});
-            }
-
-            next = cur[0];
-            // 역방향
-            while (true) {
-                next -= num;
-                if (next < 1) break;
-                if (visit[next]) continue;
-                visit[next] = true;
-
-                if (next == b) {
-                    return cur[1] + 1;
-                }
-
-                q.add(new int[]{next, cur[1] + 1});
-            }
-
-        }
-        return -1;
-
-    }
-
-     */
 }
     /*
     static boolean[] visit;
