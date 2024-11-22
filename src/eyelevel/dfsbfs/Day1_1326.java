@@ -37,7 +37,6 @@ public class Day1_1326 {
         } else {
             System.out.println(bfs());
         }
-
     }
 
     static int bfs() {
