@@ -38,7 +38,6 @@ public class Day1_1326 {
             System.out.println(bfs());
         }
     }
-
     static int bfs() {
         Queue<int[]> queue = new ArrayDeque<>();  // (인덱스, 반복해서 저장되는 값)
         queue.add(new int[]{a, visit[a]}); // 현재위치, 이동횟수
