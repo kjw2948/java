@@ -26,7 +26,6 @@ public class Day1_1326 {
             arr[i] = Integer.parseInt(st.nextToken());
             visit[i] = -1;
         }
-
         st = new StringTokenizer(br.readLine());
         a = Integer.parseInt(st.nextToken());
         b = Integer.parseInt(st.nextToken());
