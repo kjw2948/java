@@ -8,5 +8,4 @@ public class Problem9465 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
     }
-
 }
