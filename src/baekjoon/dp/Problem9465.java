@@ -11,5 +11,6 @@ public class Problem9465 {
         int N = Integer.parseInt(br.readLine());
 
         StringTokenizer st = new StringTokenizer(br.readLine());
+        int[] arr = new int[N];
     }
 }
