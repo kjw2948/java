@@ -12,9 +12,9 @@ public class Problem9465 {
 
         StringTokenizer st = new StringTokenizer(br.readLine());
         int[] arr = new int[N];
-        for (int i = 0; i < arr.length; i++) {
-            arr[i] = Integer.parseInt(br.readLine());
-
+        int index = 0;
+        while (st.hasMoreTokens()) {
+            arr[index++] = Integer.parseInt(st.nextToken());
         }
     }
 }
