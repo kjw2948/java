@@ -16,5 +16,10 @@ public class Problem9465 {
         while (st.hasMoreTokens()) {
             arr[index++] = Integer.parseInt(st.nextToken());
         }
+
+        if (N == 1) {
+            System.out.println("-1");
+            return;
+        }
     }
 }
