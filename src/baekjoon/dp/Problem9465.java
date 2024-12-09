@@ -17,4 +17,5 @@ public class Problem9465 {
             arr[index++] = Integer.parseInt(st.nextToken());
         }
     }
+
 }
