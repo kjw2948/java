@@ -14,5 +14,6 @@ public class Problem9251 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String s1 = br.readLine();
         String s2 = br.readLine();
+
     }
 }
