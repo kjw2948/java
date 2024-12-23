@@ -15,5 +15,10 @@ public class Problem9251 {
         String s1 = br.readLine();
         String s2 = br.readLine();
 
+        char[] arr1 = s1.toCharArray();
+        char[] arr2 = s2.toCharArray();
+
+        System.out.println(s1);
+
     }
 }
