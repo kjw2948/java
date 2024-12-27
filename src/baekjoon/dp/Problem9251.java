@@ -21,7 +21,5 @@ public class Problem9251 {
         for (char c : arr1) {
             System.out.println(c);
         }
-
-
     }
 }
