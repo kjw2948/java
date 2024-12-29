@@ -18,8 +18,5 @@ public class Problem9251 {
         char[] arr1 = s1.toCharArray();
         char[] arr2 = s2.toCharArray();
 
-        for (char c : arr1) {
-            System.out.println(c);
-        }
     }
 }
