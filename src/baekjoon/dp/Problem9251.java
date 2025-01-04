@@ -10,10 +10,7 @@ LCS
  */
 public class Problem9251 {
     static String[] dp;
+    static boolean[] visited;
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        String s1 = br.readLine();
-        String s2 = br.readLine();
-
     }
 }
