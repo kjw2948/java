@@ -12,5 +12,6 @@ public class Problem9251 {
     static String[] dp;
     static boolean[] visited;
     public static void main(String[] args) throws IOException {
+
     }
 }
