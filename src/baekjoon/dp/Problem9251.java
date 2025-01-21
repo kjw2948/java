@@ -17,6 +17,9 @@ public class Problem9251 {
         dp = new String[N];
         visited = new boolean[N];
 
+        for (String s : dp) {
+            System.out.println(s);
+        }
 
     }
 }
