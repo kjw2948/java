@@ -16,5 +16,9 @@ public class Problem9251 {
         int N = Integer.parseInt(br.readLine());
         dp = new String[N];
         visited = new boolean[N];
+
+        for (int i = 0; i < N; i++) {
+            dp[i] = br.readLine();
+        }
     }
 }
